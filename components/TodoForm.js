@@ -10,7 +10,7 @@ function TodoForm({ create }) {
    function addItem(e) {
       e.preventDefault();
       let newItem = {
-         ...todoItem, id: Date.now()
+         ...todoItem, id: Date.now(), completed: false
       };
       create(newItem);
       setTodoItem({ title: '' })

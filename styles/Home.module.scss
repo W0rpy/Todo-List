@@ -4,8 +4,31 @@
    justify-content: center;
 }
 
+.Wrapper {
+   margin: 0px auto;
+   max-width: 1300px;
+   padding: 0px 10px;
+}
+
+@media (max-width: 1199.98px) {
+   .Wrapper {
+      max-width: 970px;
+   }
+}
+
 @media (max-width: 991.98px) {
    .Home {
       padding: 60px 0px 0px 0px;
+   }
+
+   .Wrapper {
+      max-width: 750px;
+   }
+}
+
+@media (max-width: 766.98px) {
+
+   .Wrapper {
+      max-width: 750px;
    }
 }

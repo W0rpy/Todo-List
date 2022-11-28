@@ -10,12 +10,12 @@ import { useState } from 'react';
 
 function TodoItem(props) {
    const [edit, setEdit] = useState(null);
-   const [checked, setChecked] = useState(props.item.completed)
 
    function saveEdit() {
       props.editItem(props.item.id, props.editingText);
       setEdit(!edit);
    }
+   const [checked, setChecked] = useState(props.item.completed);
 
    return (
       <div className={styles.TodoItem} >

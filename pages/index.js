@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import Head from 'next/head'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import TodoForm from '../components/TodoForm'
 import TodoList from '../components/TodoList'
 import styles from '../styles/Home.module.scss'
@@ -34,11 +34,15 @@ export default function Home() {
     setListItems(updateItem);
     setEditingText('')
   }
-  /* 
-    useMemo(() => {
-      return [...listItems].sort((b, a) => { return b.completed - a.completed });
-    }, [listItems])
-   */
+  /*  function sortItem(a, b) {
+     return a.completed - b.completed
+   }
+ 
+   useMemo(() => {
+     [...listItems].sort(sortItem);
+     return listItems;
+   }, [listItems]) */
+
   return (
     <div className={styles.Home}>
       <Head>
@@ -46,19 +50,21 @@ export default function Home() {
         <meta name="description" content="Create todolist" />
       </Head>
       <main>
-        <Typography variant='h2' mb={2}>Todo List</Typography>
-        <TodoForm create={createItem} />
-        {listItems.length !== 0
-          ? <TodoList listItems={listItems} remove={removeItem} editItem={editItem} setEditingText={setEditingText} editingText={editingText} />
-          : (<Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-          >
-            <Typography variant='h3' color='error'> No todo list</Typography>
-          </Box>)
-        }
+        <div className={styles.Wrapper}>
+          <Typography variant='h2' mb={2}>Todo List</Typography>
+          <TodoForm create={createItem} />
+          {listItems.length !== 0
+            ? <TodoList listItems={listItems} remove={removeItem} editItem={editItem} setEditingText={setEditingText} editingText={editingText} />
+            : (<Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <Typography variant='h3' color='error'> No todo list</Typography>
+            </Box>)
+          }
+        </div>
       </main>
     </div>
   )
