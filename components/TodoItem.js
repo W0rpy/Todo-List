@@ -20,7 +20,7 @@ function TodoItem(props) {
    return (
       <div className={styles.TodoItem} >
          <Box sx={{
-            width: '800px',
+            width: '100%',
             display: 'flex',
             alignItems: 'center',
             borderBottom: '1px solid #000',
